@@ -5,17 +5,18 @@ apt-get update
 apt-get install -y nginx
 
 
-# Create directories if they don't already exist
+# Create directories and user
 mkdir -p /data/web_static/releases/test
-mkdir -p /data/web_static/shared/
-
+mkdir -p /data/web_static/shared
 ln -sf /data/web_static/releases/test /data/web_static/current
-chown -R ubuntu:ubuntu /data/
+chown -R ubuntu:ubuntu /data
 
+# welcome pages
 echo "Holberton School" > /usr/share/nginx/html/index.html
 echo "Holberton School - hbnb_static" > /data/web_static/releases/test/index.html
 echo "Ceci n'est pas une page" > /usr/share/nginx/html/404.html
 
+#file configuration
 printf %s "server {
     listen 80;
     listen [::]:80 default_server;
