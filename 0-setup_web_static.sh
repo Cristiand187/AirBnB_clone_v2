@@ -7,9 +7,9 @@ apt-get install -y nginx
 
 # Create directories if they don't already exist
 mkdir -p /data/web_static/releases/test
-mkdir /data/web_static/shared/
+mkdir -p /data/web_static/shared/
 
-ln -sf /data/web_static/releases/test/ /data/web_static/current
+ln -sf /data/web_static/releases/test /data/web_static/current
 chown -R ubuntu:ubuntu /data/
 
 echo "Holberton School" > /usr/share/nginx/html/index.html
