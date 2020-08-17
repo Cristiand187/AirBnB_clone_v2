@@ -22,10 +22,6 @@ printf %s "server {
     add_header X-Served-By $HOSTNAME;
     root   /usr/share/nginx/html;
     index  index.html index.htm;
-    location /hbnb_static/ {
-        alias /data/web_static/current/;
-        autoindex off;
-    }
     location /redirect_me {
         return 301 http://finalesoft.tech/;
     }
@@ -35,5 +31,7 @@ printf %s "server {
       internal;
     }
 }" > /etc/nginx/sites-available/default
+
+sudo sed -i '38i\\tlocation /hbnb_static/ {\n\t\talias /data/web_static/current/;\n\t}\n' /etc/nginx/sites-available/default
 
 service nginx restart
