@@ -22,6 +22,6 @@ class State(BaseModel, Base):
         def cities(self):
             """returns list of city instances"""
             from models import storage
-            from models import City
-            return [v for k, v in storage.all(City).items()
+            from models import city
+            return [v for k, v in storage.all(city).items()
                     if v.state_id == self.id]
