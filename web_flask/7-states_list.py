@@ -69,7 +69,7 @@ def states_list():
 @app.teardown_appcontext
 def teardown(exc):
     """
-    
+    /states_list: display a HTML page: (inside the tag BODY)
     """
     storage.close()
 
